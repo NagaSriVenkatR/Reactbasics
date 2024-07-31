@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import es6arraymethods from './components/es6arraymethods';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
+    <es6arraymethods />
+    <h1>Good Morning</h1>
   </React.StrictMode>
 );
 

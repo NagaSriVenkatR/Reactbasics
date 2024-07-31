@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Function</h1>
+  <p id="demo"></p>
+  <h1>Arrow function</h1>
+  <p id="demo1"></p>
+  <p id="demo2"></p>
+  <script>
+    hello  = function name(params) {
+      return "Hello World!";
+    }
+    welcome= ()=>{
+      return "Welcome to Ebrain Technologies";
+    }
+    learn = ()=>{
+      return "Training Front End"
+    }
+    document.getElementById('demo').innerHTML = hello();
+    document.getElementById('demo1').innerHTML = welcome();
+    document.getElementById('demo2').innerHTML = learn();
+  </script>
+</body>
+</html>
