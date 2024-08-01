@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <script>
+    const num1 = [1,2,3];
+    const num2 = [4,5,6];
+    const number = [num1 ,num2];
+    document.write(number);
+
+    const numbers = [1,2,3,4,5,6];
+    const [one,two,...remain] = numbers;
+    document.write("<p>"+ one +"</p>");
+    document.write("<p>"+ two +"</p>");
+    document.write("<p>"+ remain +"</p>");
+
+    const vehicle = {
+      Brand : "Maruthi Suzuki",
+      Model : "Swift Dzire",
+      type : "car",
+    }
+    const updateVehicle = {
+      color : "Blue",
+      Year : 2024,
+      Model : "Breezer"
+    }
+    const MyUpdatevehicle = {...vehicle,...updateVehicle};
+    document.getElementById("demo").innerhtml = MyUpdatevehicle;
+    console.log(MyUpdatevehicle);
+  </script>
+</body>
+</html>

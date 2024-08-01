@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="demo"></p>
+  <script>
+    function calculate(a ,b) {
+      let add = a+b;
+      let sub = a-b;
+      let mul = a*b;
+      let div = a/b;
+      return [add , sub,mul,div]
+    }
+    let [add,sub,mul,div]=calculate(16,20);
+    document.write("<p> Sum: "+ add +"</p>");
+    document.write("<p> Difference: "+ sub +"</p>");
+    document.write("<p> Product : "+ mul +"</p>");
+    document.write("<p> Quotient: "+ div +"</p>");
+    const vehicleONE ={
+      brand : 'Ford',
+      model : 'Mustang',
+      type : 'car',
+      color : 'purple',
+      year : 2021
+    }
+    myVehicle(vehicleONE);
+    function myVehicle({brand,model,type,color,year}) {
+      const message = 'My ' +  type  + ' is a ' + color + ' ' + brand + ' ' + model;
+      document.getElementById('demo').innerHTML = message;
+    }
+  </script>
+</body>
+</html>
