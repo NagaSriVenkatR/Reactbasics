@@ -6,32 +6,22 @@
   <title>Document</title>
 </head>
 <body>
+  <h1>Javascript Destructring</h1>
+  <h2>Array Destructring</h2>
+  <p id="demo1"></p>
+  <p id="fruits"></p>
+  <h3>Moving some of array values into single values</h3>
+  <p id="fruit"></p>
+  <h2>Object Destructring</h2>
   <p id="demo"></p>
-  <script>
-    function calculate(a ,b) {
-      let add = a+b;
-      let sub = a-b;
-      let mul = a*b;
-      let div = a/b;
-      return [add , sub,mul,div]
-    }
-    let [add,sub,mul,div]=calculate(16,20);
-    document.write("<p> Sum: "+ add +"</p>");
-    document.write("<p> Difference: "+ sub +"</p>");
-    document.write("<p> Product : "+ mul +"</p>");
-    document.write("<p> Quotient: "+ div +"</p>");
-    const vehicleONE ={
-      brand : 'Ford',
-      model : 'Mustang',
-      type : 'car',
-      color : 'purple',
-      year : 2021
-    }
-    myVehicle(vehicleONE);
-    function myVehicle({brand,model,type,color,year}) {
-      const message = 'My ' +  type  + ' is a ' + color + ' ' + brand + ' ' + model;
-      document.getElementById('demo').innerHTML = message;
-    }
+  <div>
+    <p id="name"></p>
+    <p id="age"></p>
+    <p id="hiking"></p>
+    <p id="city"></p>
+  </div>
+  <script src="es6destructuring.js">
+  
   </script>
 </body>
 </html>
