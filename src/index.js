@@ -334,18 +334,224 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // }
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<Football/>)
-function MissedGoal() {
-  return <h1>Missed !</h1>;
+// function MissedGoal() {
+//   return <h1>Missed !</h1>;
+// }
+// function MadeGoal() {
+//   return <h1>Goal !</h1>;
+// }
+// function Goal(props) {
+//   const isGoal = props.isGoal;
+//   if(isGoal){
+//     return <MadeGoal />
+//   }
+//   return <MissedGoal />
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Goal isGoal = {true} />)
+// function Garbage(props) {
+//   const cars = props.cars;
+//   return(
+//     <div>
+//       <h1>Garbage</h1>
+//       {cars.length > 0 && <h4>You have a {cars.length} cars in a Garbage </h4>}
+//     </div>
+//   )
+// }
+// const cars = [];
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Garbage cars={cars}/>)
+// function MissedGoal() {
+//   return <h1>Missed !</h1>
+// }
+// function MadeGoal() {
+//   return <h1>Goal !</h1>
+// }
+// function Goal(props) {
+//   const isGoal = props.isGoal;
+//   return (
+//     <div>
+//       {isGoal ? <MadeGoal /> : <MissedGoal />}
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Goal isGoal={true}/>)
+              // React Lists
+// function Car(props) {
+//   return <li> I am a {props.brand} brand car </li>
+// }
+// // function Garbage() {
+// //   const cars = ["Ford","Audi","BMW","Toyoto","Tata"];
+// //   return (
+// //     <div>
+// //       <h1>Who lives in my Garbage</h1>
+// //       <ul>
+// //         {cars.map((car)=> <Car brand={car}/>)}
+// //       </ul>
+// //     </div>
+// //   )
+// // }
+// function Garbage() {
+//   const cars = [{id:1,brand:'Ford'},{id:2,brand:'BMW'},{id:3,brand:'Audi'}];
+//   return (
+//     <div>
+//       <h1>Who lives in my Garbage</h1>
+//       <ul>
+//         {cars.map((car) => <Car key={car.id} brand = {car.brand} />)}
+//       </ul>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Garbage />)
+                        //React Forms
+// function MyForm() {
+//   return(
+//     <form className='row justify-content-center align-items-center my-5' action="">
+//       <div className='form-floating col-md-6'>
+//         <input className='form-control' type="text" placeholder='Enter your name'/>
+//         <label className='form-input mx-2' htmlFor="floatingInput">Enter Your Name</label>
+//       </div>
+//     </form>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MyForm />);
+// function MyForm() {
+//   const [inputs,setInputs] = useState({});
+//   const [myCar,setMyCar] = useState("Please select any car");
+
+//   const handleChange = (event) => {
+//     const name = event.target.name;
+//     const value = event.target.value;
+//     setInputs(values => ({...values,[name]:value}))
+//     setMyCar(event.target.value)
+//   }
+//   const [textarea,settextarea] = useState("Welcome to Ebrain Technology")
+//   const handleText = (event) =>{
+//     settextarea(event.target.value)
+//   }
+//   const handleSubmit = (event)=>{
+//     event.preventDefault();
+//     console.log(inputs);
+//   }
+//   return (
+//     <form
+//       className="row justify-content-center"
+//       action=""
+//       onSubmit={handleSubmit}
+//     >
+//       <div className="form-floating col-md-8 my-5">
+//         <input
+//           className="form-control"
+//           type="text"
+//           name="username"
+//           value={inputs.username || ""}
+//           placeholder="Enter your name"
+//           onChange={handleChange}
+//         />
+//         <label className="form-label" htmlFor="floatingInputs">
+//           Enter Your Name
+//         </label>
+//       </div>
+//       <div className="form-floating col-md-8 my-5">
+//         <input
+//           className="form-control"
+//           type="number"
+//           name="age"
+//           value={inputs.age || ""}
+//           placeholder="Enter your age"
+//           onChange={handleChange}
+//         />
+//         <label className="form-label" htmlFor="floatingInputs">
+//           Enter Your Age
+//         </label>
+//       </div>
+//       <div className="form-floating col-md-8 my-5">
+//         <textarea
+//           className="form-control"
+//           name=""
+//           value={textarea}
+//           onChange={handleText}
+//           id=""
+//         ></textarea>
+//         <label htmlFor="floatingInput">Comments </label>
+//       </div>
+//       <div className="form-floating col-md-8 my-5">
+//         <select className='form-select' value={myCar} onChange={handleChange} name="" id="">
+//           <option value="">Please select any car</option>
+//           <option value="Ford">Ford</option>
+//           <option value="BMW">BMW</option>
+//           <option value="Toyota">Toyota</option>
+//           <option value="Tata">Tata</option>
+//         </select>
+//       </div>
+//       <div className="col-md-8">
+//         <input type="submit" className="btn btn-success" />
+//       </div>
+//     </form>
+//   );
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<MyForm />)
+                        //React Router
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Layout from "./pages/Layout";
+// import Home from "./pages/Home";
+// import Blog from "./pages/Blog";
+// import Contact from "./pages/Contact";
+// import Nopages from "./pages/Nopages";
+
+// export default function App() {
+//   return (
+//     <BrowserRouter>
+//       <Routes>
+//         <Route path="/" element={<Layout />}>
+//           <Route index element={<Home />} />
+//           <Route path="blogs" element={<Blog />} />
+//           <Route path="contact" element={<Contact />} />
+//           <Route path="*" element={<Nopages/>} />
+//         </Route>
+//       </Routes>
+//     </BrowserRouter>
+//   );
+// }
+
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<App />);
+                            //React Memo
+// import Todo from './Todo';
+// const App = () => {
+//   const [count ,setCount] = useState(0);
+//   const [todo] = useState(["todo 1","todo 2"]);
+//   const increment  = () => {
+//     setCount((count)=> count + 1);
+//   }
+//   return (
+//     <div>
+//       <Todo todo={todo} />
+//       <hr />
+//       <div>
+//         Count :  {count}
+//         <button className='btn btn-primary' onClick={increment}>
+//           +
+//         </button>
+//       </div>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App />)
+                    //React sass
+import './my-sass.scss';
+const Header = () =>{
+  return(
+    <div>
+      <h1>Hello Style !</h1>
+      <p>Add a little Style !.</p>
+    </div>
+  )
 }
-function MadeGoal() {
-  return <h1>Goal !</h1>;
-}
-function Goal(props) {
-  const isGoal = props.isGoal;
-  if(isGoal){
-    return <MadeGoal />
-  }
-  return <MissedGoal />
-}
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Goal isGoal = {true} />)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Header />)
