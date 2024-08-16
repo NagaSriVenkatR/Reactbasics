@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import { Tagss } from './FunctionalTag';
@@ -544,14 +544,290 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App />)
                     //React sass
-import './my-sass.scss';
-const Header = () =>{
-  return(
+// import './my-sass.scss';
+// const Header = () =>{
+//   return(
+//     <div>
+//       <h1>Hello Style !</h1>
+//       <p>Add a little Style !.</p>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<Header />)
+                      //React Hooks
+                      //useState
+// function FavoriteColor() {
+//   const [color,setColor] = useState("");
+//   return (
+//     <div className="row justify-content-center align-items-center text-center">
+//       <h1 className="col-md-10">My Favorite Color is {color}!</h1>
+//       <div className='col-md-4 d-flex justify-content-between'>
+//         <button className='btn btn-primary' onClick={() => setColor("Blue")}>Blue</button>
+//         <button className='btn btn-primary' onClick={() => setColor("Purple")}>Purple</button>
+//         <button className='btn btn-primary' onClick={() => setColor("Violet")}>Violet</button>
+//         <button className='btn btn-primary' onClick={() => setColor("Yellow")}>Yellow</button>
+//         <button className='btn btn-primary' onClick={() => setColor("Orange")}>Orange</button>
+//       </div>
+//     </div>
+//   );
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<FavoriteColor />)
+// function Car() {
+//   const[brand,setBrand] = useState("KIA");
+//   const[model,setModel] = useState("Seltos");
+//   const[year,setYear] = useState("2024");
+//   const[color,setColor] = useState("Navy");
+//   return(
+//     <div>
+//       <h1>It is a {brand} Car and it's model is {model} {year} and it's color {color}</h1>
+//     </div>
+//   )
+// }
+// function Car() {
+//   const [car] = useState({
+//     brand : "Tata",
+//     color : "Grey",
+//     model: "Thar",
+//     year: "2024"
+//   })
+//   return(
+//     <div>
+//       <h1>My Car brand is {car.brand}</h1>
+//       <h4>It's model {car.model} {car.year} and it's color {car.color}</h4>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Car/>)
+// function Car() {
+//   const[car,setCar] = useState({
+//     brand:"Tata",
+//     model:"Thar",
+//     color:"Red",
+//     year:2024
+//   })
+//   const updateColor = () =>{
+//     setCar(previousState =>{
+//       return {...previousState,color:"blue"}
+//     });
+//   }
+//   return (
+//     <div>
+//       <h1>My car {car.brand}</h1>
+//       <p>It's model {car.model} {car.year} and it's color {car.color}</p>
+//       <button type='button' onClick={updateColor}>Blue</button>
+//     </div>
+//   )
+// }
+                    //useEffect
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Car/>)
+// function Timer() {
+//   const[count,setCount] = useState(0);
+//   useEffect(() =>{
+//     setTimeout(() => {
+//       setCount((count)=> count+1)
+//     }, 2000);
+//   });
+//   return(
+//     <div>
+//       <h1>I have rendered {count} times !</h1>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Timer />)
+// function Timer() {
+//   const[count,setCount]=useState(0);
+//   useEffect(() => {
+//     setTimeout(() => {
+//       setCount((count) => count + 1 )
+//     }, 1000);
+//   },[]);
+//   return(
+//     <div>
+//       <h1>I have rendered {count} times!</h1>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Timer />)
+    //useEffect dependent on variable when count update then calculation should be calculated
+// function Timer() {
+//   const[count,setCount] = useState(0);
+//   const[calculation,setCalculation] = useState(0);
+//   useEffect(() => {
+//     setCalculation(() => count * 2 );
+//   },[count]);
+//   return(
+//     <div>
+//       <h1>Count : {count}</h1>
+//       <button onClick={() => setCount((count) => count + 1)}>+</button>
+//       <p>calculation : {calculation}</p>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Timer />)
+                    //Effect clean up to clean the memory
+// function Timer() {
+//   const [count ,setCount] = useState(0);
+//   useEffect(() =>{
+//     let timer = setTimeout(() => {
+//       setCount((count) => count + 1)
+//     }, 1000);
+//     return() => clearTimeout(timer)
+//   },[]);
+//   return (
+//     <div>
+//       <h1>I've rendererd {count} times!</h1>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Timer />)
+                            //use context
+                  //1.Nested Components
+// function Component_1() {
+//   const[user] = useState("Jessie Hall");
+//   return(
+//     <div>
+//       <h1>Component_1</h1>
+//       <h1>{`Hello ${user}!`}</h1>
+//       <Component_2 user = {user} />
+//     </div>
+//   )
+// }
+// function Component_2({user}) {
+//   return(
+//     <div>
+//       <h1>Hello Component_2</h1>
+//       <Component_3 user = {user}/>
+//     </div>
+//   )
+// }
+// function Component_3({user}) {
+//   return(
+//     <div>
+//       <h1>Hello Component_3</h1>
+//       <Component_4 user = {user} />
+//     </div>
+//   )
+// }
+// function Component_4({user}) {
+//   return(
+//     <div>
+//       <h1>Hello Component_4</h1>
+//       <Component_5 user = {user}/>
+//     </div>
+//   )
+// }
+// function Component_5({user}) {
+//   return(
+//     <div>
+//       <h1>Hello Component_5</h1>
+//       <h3>{`Hello ${user} again!`}</h3>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Component_1 />)
+                  //React Context
+// const UserContext = createContext();
+// function Component_1() {
+//   const [user,setUser] = useState("Jessie Hall !");
+//   return(
+//     <div>
+//       <UserContext.Provider value={user}>
+//         <h1>{`Hello ${user}! `}</h1>
+//         <Component_2 />
+//       </UserContext.Provider>
+//     </div>
+//   )
+// }
+// function Component_2({user}) {
+//   return(
+//     <div>
+//       <h1>{`Hello component_2`}</h1>
+//       <Component_3/>
+//     </div>
+//   )
+// }
+// function Component_3({user}) {
+//   return(
+//     <div>
+//       <h1>{`Hello component_3`}</h1>
+//       <Component_4/>
+//     </div>
+//   )
+// }
+// function Component_4({user}) {
+//   return(
+//     <div>
+//       <h1>{`Hello component_4`}</h1>
+//       <Component_5/>
+//     </div>
+//   )
+// }
+// function Component_5() {
+//   const user = useContext(UserContext);
+//   return(
+//     <div>
+//       <h1>{`Hello ${user} again! component_5`}</h1>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Component_1 />)
+                    //useRef
+// function App() {
+//   const[inputValue,setInputValue] = useState(" ");
+//   const count = useRef(0);
+//   useEffect(()=>{
+//     count.current = count.current + 1;
+//   });
+//   return (
+//     <div>
+//       <input className='form-control' type="text" value={inputValue} onChange={(e) =>setInputValue(e.target.value)}/>
+//       <h1>Render Count : {count.current}</h1>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App/>)
+              //Accessing DOM Elements in useRef to focus on the input element
+// function App() {
+//   const inputElement = useRef(0);
+//   const focusInput = () => {
+//     inputElement.current.focus();
+//   };
+//   return(
+//     <div>
+//       <input className='form-control' ref={inputElement} type="text" />
+//       <button onClick={focusInput}>Focus Input</button>
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App/>)
+                  //Track state changes
+function App() {
+  const [inputValue ,setInputValue] = useState(" ");
+  const previousInputValue = useRef(" ");
+  useEffect(()=>{
+    previousInputValue.current = inputValue;
+  },[inputValue]);
+  return (
     <div>
-      <h1>Hello Style !</h1>
-      <p>Add a little Style !.</p>
+      <input type="text"
+      value={inputValue}
+      onChange={(e)=>setInputValue(e.target.value)} />
+      <h2>Current Value : {inputValue}</h2>
+      <h2>Previous Input Value : {previousInputValue.current}</h2>
     </div>
-  )
+  );
 }
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Header />)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />)
