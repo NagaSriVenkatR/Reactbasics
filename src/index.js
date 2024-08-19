@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import useFetch from './useFetch';
 // import { Tagss } from './FunctionalTag';
 // import Car from './components/Car';
 // import './index.css';
@@ -813,21 +814,159 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // const root = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<App/>)
                   //Track state changes
-function App() {
-  const [inputValue ,setInputValue] = useState(" ");
-  const previousInputValue = useRef(" ");
-  useEffect(()=>{
-    previousInputValue.current = inputValue;
-  },[inputValue]);
-  return (
+// function App() {
+//   const [inputValue ,setInputValue] = useState(" ");
+//   const previousInputValue = useRef(" ");
+//   useEffect(()=>{
+//     previousInputValue.current = inputValue;
+//   },[inputValue]);
+//   return (
+//     <div>
+//       <input type="text"
+//       value={inputValue}
+//       onChange={(e)=>setInputValue(e.target.value)} />
+//       <h2>Current Value : {inputValue}</h2>
+//       <h2>Previous Input Value : {previousInputValue.current}</h2>
+//     </div>
+//   );
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App />)
+                    //Use Reducer
+// const initialTodos = [
+//   {
+//     id : 1,
+//     title : "Todo 1",
+//     complete : false,
+//   },
+//   {
+//     id : 2,
+//     title : "Todo 2",
+//     complete : true,
+//   },
+// ];
+// const reducer = (state,action) =>{
+//   switch(action.type){
+//     case "COMPLETE" :
+//       return state.map((todo) =>{
+//         if(todo.id === action.id){
+//           return {...todo , complete: !todo.complete};
+//         }else{
+//           return todo;
+//         }
+//       });
+//     default:
+//       return state;  
+//   }
+// }
+// function Todos() {
+//   const [todos,dispatch] =useReducer(reducer,initialTodos);
+//   const handleComplete = (todo) => {
+//     dispatch({type : "COMPLETE" , id: todo.id});
+//   };
+//   return(
+//     <div>
+//       {todos.map((todo) =>(
+//         <div key={todo.id}>
+//           <label htmlFor="">
+//             <input type="checkbox" checked={todo.complete} onChange={() => handleComplete(todo)}/>
+//             {todo.title}
+//           </label>
+//         </div>
+//       ))}
+//     </div>
+//   )
+// };
+// const root =  ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<Todos />)
+// import Todos from './Todos';
+// const App = () =>{
+//   const[count,setCount] = useState(0);
+//   const[todos,setTodos] = useState([]);
+//   const increment = () => {
+//     setCount((c)=> c+1);
+//   };
+//   const addTodo = useCallback(() => {
+//     setTodos((t)=>[...t , "New Todo"]);
+//   },[]);
+//   return(
+//     <div>
+//       <Todos todos={todos} addTodo={addTodo}/>
+//       <hr />
+//       <div>
+//         Count : {count}
+//         <button onClick={increment}>+</button>
+//       </div>
+//     </div>
+//   );
+// };
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App/>)
+                      //UseMemos
+// const App = () => {
+//   const [count,setCount] = useState(0);
+//   const [todos,setTodos] = useState([]);
+//   const calculation = useMemo(() => expensiveCalculation(count));
+//   const increment = () => {
+//     setCount((c) => c+1 );
+//   };
+//   const addTOdo = () => {
+//     setTodos ((t) => [...t, "New Todo"]);
+//   };
+//   return(
+//     <div>
+//       <div>
+//         <h2>My Todos</h2>
+//         {todos.map((todo , index) =>{
+//           return <p key={index}>{todo}</p>
+//         })}
+//         <button onClick={addTOdo}>Add Todo</button>
+//       </div>
+//       <hr />
+//       <div>
+//         Count : {count}
+//         <button onClick={increment}>+</button>
+//         <h2>Expensive Calculation</h2>
+//         {calculation}
+//       </div>
+//     </div>
+//   )
+// };
+// const expensiveCalculation = (num) => {
+//   console.log("Calculating...");
+//   for(let i=0; i<1000000000 ; i++ ){
+//     num += 1;
+//   }
+//   return num;
+// };
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<App/>)
+// const Home = () => {
+//   const[data , setData] = useState(null);
+//   useEffect(() => {
+//     fetch("https://jsonplaceholder.typicode.com/todos")
+//     .then((res) => res.json())
+//     .then((data) => setData(data));
+//   },[]);
+//   return(
+//     <div className='container'> 
+//       {data && data.map((item) => {
+//         return <p key={item.id}>{item.title}</p>
+//       })}
+//     </div>
+//   )
+// }
+// const root  = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Home />)
+const Home = () => {
+  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+  return(
     <div>
-      <input type="text"
-      value={inputValue}
-      onChange={(e)=>setInputValue(e.target.value)} />
-      <h2>Current Value : {inputValue}</h2>
-      <h2>Previous Input Value : {previousInputValue.current}</h2>
+      {data && data.map((item) => {
+        return <p key={item.id}>{item.title}</p>
+      })}
     </div>
-  );
+  )
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />)
+root.render(<Home />);
