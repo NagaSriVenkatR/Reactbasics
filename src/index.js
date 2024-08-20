@@ -2,20 +2,39 @@ import React, { createContext, useCallback, useContext, useEffect, useMemo, useR
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import useFetch from './useFetch';
+import Usestate from './hooks/Usestate';
 // import { Tagss } from './FunctionalTag';
 // import Car from './components/Car';
 // import './index.css';
-// import App from './App';
+import App from './App';
+import Usereffect from './hooks/Usereffect';
+import Usercontent from './hooks/Usercontent';
+import Userref from './hooks/Userref';
+
 // // import Arraymethod from './components/Arraymethod';
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//     {/* <Arraymethod /> */}
-//     <h1 className='display-1'>Good Morning</h1>
-//     <p>Welcome to Ebrain Technology</p>
-//   </React.StrictMode>
-// );
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+    {/* <Arraymethod /> */}
+    <h1 className="display-1">Good Morning</h1>
+    <p>Welcome to Ebrain Technology</p>
+    <h1 className="" style={{ color: "red" }}>
+      using useState
+    </h1>
+    <Usestate />
+    <h1 className="text-red" style={{ color: "red" }}>
+      using useEffect
+    </h1>
+    <Usereffect />
+    <h1 className="text-red" style={{ color: "red" }}>
+      using useContent
+    </h1>
+    <Usercontent />
+    <h1 style={{ color: "red" }}>Using Useref</h1>
+    <Userref />
+  </React.StrictMode>
+);
 
 // // If you want to start measuring performance in your app, pass a function
 // // to log results (for example: reportWebVitals(console.log))
@@ -958,15 +977,15 @@ import useFetch from './useFetch';
 // }
 // const root  = ReactDOM.createRoot(document.getElementById('root'));
 // root.render(<Home />)
-const Home = () => {
-  const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
-  return(
-    <div>
-      {data && data.map((item) => {
-        return <p key={item.id}>{item.title}</p>
-      })}
-    </div>
-  )
-}
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Home />);
+// const Home = () => {
+//   const [data] = useFetch("https://jsonplaceholder.typicode.com/todos");
+//   return(
+//     <div>
+//       {data && data.map((item) => {
+//         return <p key={item.id}>{item.title}</p>
+//       })}
+//     </div>
+//   )
+// }
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// root.render(<Home />);
