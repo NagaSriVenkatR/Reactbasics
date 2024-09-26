@@ -1,22 +1,22 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import useFetch from './useFetch';
-import Usestate from './hooks/Usestate';
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import useFetch from './useFetch';
+// import Usestate from './hooks/Usestate';
 // import { Tagss } from './FunctionalTag';
 // import Car from './components/Car';
 // import './index.css';
 import App from './App';
-import Usereffect from './hooks/Usereffect';
-import Usercontent from './hooks/Usercontent';
-import Userref from './hooks/Userref';
+// import Usereffect from './hooks/Usereffect';
+// import Usercontent from './hooks/Usercontent';
+// import Userref from './hooks/Userref';
 
 // // import Arraymethod from './components/Arraymethod';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    {/* <Arraymethod /> */}
+    {/* <Arraymethod />
     <h1 className="display-1">Good Morning</h1>
     <p>Welcome to Ebrain Technology</p>
     <h1 className="" style={{ color: "red" }}>
@@ -32,7 +32,7 @@ root.render(
     </h1>
     <Usercontent />
     <h1 style={{ color: "red" }}>Using Useref</h1>
-    <Userref />
+    <Userref /> */}
   </React.StrictMode>
 );
 
